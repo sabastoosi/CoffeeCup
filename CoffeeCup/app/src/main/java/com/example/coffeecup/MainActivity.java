@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        fab = (FloatingActionButton) findViewById(R.id.createBrewButton);
 
         loadData();
 
@@ -41,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
         // set adapter
         mAdapter = new RecyclerAdapter(myDataset);
         recyclerView.setAdapter(mAdapter);
-
-        fab = (FloatingActionButton) findViewById(R.id.createBrewButton);
-
 
     }
 
