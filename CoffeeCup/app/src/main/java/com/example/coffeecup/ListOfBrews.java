@@ -15,6 +15,32 @@ public class ListOfBrews {
     }
 
     /**
+     This method returns all brew names in an array of strings
+     @return - array of strings
+     */
+    public String[] getAllBrewNames() {
+       String[] names = new String[listOfBrews.size()];
+
+        for (int i=0; i < listOfBrews.size(); i ++) {
+            names[i] = listOfBrews.get(i).getmName();
+        }
+        return names;
+    }
+
+    /**
+     This method returns all brew dates in an array of strings
+     @return - array of strings
+     */
+    public String[] getAllBrewDates() {
+        String[] dates = new String[listOfBrews.size()];
+
+        for (int i=0; i < listOfBrews.size(); i ++) {
+            dates[i] = listOfBrews.get(i).getmDate();
+        }
+        return dates;
+    }
+
+    /**
      This method adds a brew to our master list of brews
      @param brewToAdd - the List object of the list we'd like to add
      */
