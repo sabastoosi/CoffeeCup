@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<String> myDataset = new ArrayList<String>();
     private RecyclerView recyclerView;
-    private RecyclerAdapter adapter;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private FloatingActionButton fab;
@@ -45,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
         // set adapter
         mAdapter = new RecyclerAdapter(this, myDataset);
         recyclerView.setAdapter(mAdapter);
-        adapter.setClickListener(this);
-
     }
 
     /**
