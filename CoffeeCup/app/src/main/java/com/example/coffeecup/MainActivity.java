@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         myDataset = listOfBrews.getAllBrewNames();
 
         // set adapter
-//        mAdapter = new RecyclerAdapter(this, myDataset);
-//        recyclerView.setAdapter(mAdapter);
+        mAdapter = new MyAdapter(this, myDataset);
+        recyclerView.setAdapter(mAdapter);
     }
 
     /**
