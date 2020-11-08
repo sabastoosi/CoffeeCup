@@ -24,33 +24,44 @@ public class ListOfBrews {
      */
     public static void deleteList(String brewName) {
         for (int i = 0; i < listOfBrews.size(); i ++) {
-            if (listOfBrews.get(i).get().equals(brewName)) {
+            if (listOfBrews.get(i).getmName().equals(brewName)) {
                 listOfBrews.remove(i);
             }
         }
     }
 
     /**
-     This method handles renaming a list
-     @param listName - the name of the list we'd like to rename
-     @param newName - the new name of the list
+     This method handles renaming a Brew
+     @param brewName - the name of the brew we'd like to rename
+     @param newName - the new name of the brew
      */
-    public static void renameList(String listName, String newName) {
-        Lists list;
-        // find the list object with the name
-        list = find(listName);
-        // update the list object name
-        list.updateName(newName);
+    public static void renameList(String brewName, String newName) {
+        Brew brew;
+        // find the brew object with the name
+        brew = find(brewName);
+        // update the brew object name
+        brew.setmName(newName);
 
-        // insert new list object into allLists array
-        for (int i = 0; i < mallLists.size(); i ++) {
-            if (mallLists.get(i).getMlistName().equals(listName)) {
-                mallLists.set(i, list);
+        // insert new brew object into listOfBrews array
+        for (int i = 0; i < listOfBrews.size(); i ++) {
+            if (listOfBrews.get(i).getmName().equals(brew)) {
+                listOfBrews.set(i, brew);
             }
         }
     }
 
-
-
+    /**
+     This method finds a brew object with the given name
+     @return a Brew object
+     @param brewName - the name of the brew we'd like to find the object for
+     */
+    public static Brew find(String brewName) {
+        for (int i = 0; i < listOfBrews.size(); i ++) {
+            if (listOfBrews.get(i).getmName().equals(brewName)) {
+                return listOfBrews.get(i);
+            }
+        }
+        return null;
+    }
 
 }
