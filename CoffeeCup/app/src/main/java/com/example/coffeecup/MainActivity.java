@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<String> myDataset;
     private RecyclerView recyclerView;
+    private RecyclerAdapter adapter;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private FloatingActionButton fab;
@@ -24,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
+
+        loadData();
+
         // linear layout init
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -33,4 +36,12 @@ public class MainActivity extends AppCompatActivity {
 
         fab = (FloatingActionButton) findViewById(R.id.createBrewButton);
     }
+
+    /**
+     * loads data from previous entries
+     */
+    private void loadData() {
+
+    }
+
 }
