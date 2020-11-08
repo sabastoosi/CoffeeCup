@@ -14,9 +14,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<String> myDataset = new ArrayList<String>();
+    private ArrayList<Brew> myDataset = new ArrayList<Brew>();
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
+//    private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private FloatingActionButton fab;
     ListOfBrews listOfBrews = new ListOfBrews();
@@ -28,29 +28,28 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         fab = (FloatingActionButton) findViewById(R.id.createBrewButton);
-//        fab.setOnClickListener();
 
         loadData();
 
         // linear layout init
         layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-
-        Bean myBean = new Bean("bean", "dark", "10/1/2020" );
-        Brew firstBrew = new Brew("BrewOne", "10/8/2020", 95, myBean, 10, 10, "aeropress", 10, 10 );
-        listOfBrews.addBrew(firstBrew);
-        myDataset = listOfBrews.getAllBrewNames();
 
         // set adapter
-        mAdapter = new RecyclerAdapter(this, myDataset);
-        recyclerView.setAdapter(mAdapter);
+//        mAdapter = new RecyclerAdapter(this, myDataset);
+//        recyclerView.setAdapter(mAdapter);
+        RecyclerAdapter adapter = new RecyclerAdapter(this, myDataset);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(layoutManager);
     }
 
     /**
      * loads data from previous entries
      */
     private void loadData() {
-
+        Bean myBean = new Bean("bean", "dark", "10/1/2020" );
+        Brew firstBrew = new Brew("BrewOne", "10/8/2020", 95, myBean, 10, 10, "aeropress", 10, 10 );
+        listOfBrews.addBrew(firstBrew);
+        myDataset = listOfBrews.getAllBrews();
     }
 
     public void createBrew() {

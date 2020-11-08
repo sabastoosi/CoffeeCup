@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
 
-    private final ArrayList<String> mDataset;
+    private final ArrayList<Brew> mDataset;
     private LayoutInflater mInflater;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -21,11 +21,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
         public MyViewHolder(TextView v) {
             super(v);
-            textView = v;
+            textView = v.findViewById(R.id.brewName);
         }
     }
 
-    public RecyclerAdapter(Context context, ArrayList<String> myDataset) {
+    public RecyclerAdapter(Context context, ArrayList<Brew> myDataset) {
         mDataset = myDataset;
         mInflater = LayoutInflater.from(context);
     }
@@ -40,7 +40,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerAdapter.MyViewHolder holder, int position) {
-        holder.textView.setText(mDataset.get(position));
+        Brew brew = mDataset.get(position);
+
+        TextView tv1 = holder.textView;
+        tv1.setText(brew.getmName());
     }
 
     @Override
