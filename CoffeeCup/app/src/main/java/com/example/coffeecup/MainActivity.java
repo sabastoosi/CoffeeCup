@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Brew> myDataset = new ArrayList<Brew>();
     private RecyclerView recyclerView;
-//    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private FloatingActionButton fab;
     ListOfBrews listOfBrews = new ListOfBrews();
@@ -29,17 +29,16 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         fab = (FloatingActionButton) findViewById(R.id.createBrewButton);
 
+
+
         loadData();
 
         // linear layout init
         layoutManager = new LinearLayoutManager(this);
 
         // set adapter
-//        mAdapter = new RecyclerAdapter(this, myDataset);
-//        recyclerView.setAdapter(mAdapter);
-        RecyclerAdapter adapter = new RecyclerAdapter(this, myDataset);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(layoutManager);
+        mAdapter = new MyAdapter(this, myDataset);
+        recyclerView.setAdapter(mAdapter);
     }
 
     /**
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         myDataset = listOfBrews.getAllBrews();
     }
 
-    public void createBrew() {
+    public void createBrew(View view) {
         Intent intent = new Intent(this, BrewActivity.class);
         startActivity(intent);
     }
