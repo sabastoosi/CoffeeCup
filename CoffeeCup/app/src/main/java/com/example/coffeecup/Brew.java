@@ -1,6 +1,8 @@
 package com.example.coffeecup;
 
 public class Brew {
+    private String mName;
+    private String mDate;
     private int mWaterTemp;
     private Bean mBeanType;
     private int mCoffeeMass;
@@ -12,7 +14,9 @@ public class Brew {
     private int mStrength;
     private int mRating;
 
-    public Brew(int waterTemp, Bean beanType, int coffeeMass, int grindSize, String brewer, int brewTime, int waterDilutionMass) {
+    public Brew(String name, String date, int waterTemp, Bean beanType, int coffeeMass, int grindSize, String brewer, int brewTime, int waterDilutionMass) {
+        mName = name;
+        mDate = date;
         mWaterTemp = waterTemp;
         mBeanType = beanType;
         mCoffeeMass = coffeeMass;
@@ -20,6 +24,14 @@ public class Brew {
         mBrewer = brewer;
         mBrewTime = brewTime;
         mWaterDilutionMass = waterDilutionMass;
+    }
+
+    public String getmName() {
+        return mName;
+    }
+
+    public String getmDate() {
+        return mDate;
     }
 
     public int getmWaterTemp() {
@@ -60,6 +72,14 @@ public class Brew {
 
     public int getmStrength() {
         return mStrength;
+    }
+
+    public void setmName(String mName) {
+        this.mName = mName;
+    }
+
+    public void setmDate(String mDate) {
+        this.mDate = mDate;
     }
 
     public void setmWaterTemp(int mWaterTemp) {
