@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         fab = (FloatingActionButton) findViewById(R.id.createBrewButton);
+        fab.setOnClickListener();
 
         loadData();
 
@@ -40,8 +43,9 @@ public class MainActivity extends AppCompatActivity {
         myDataset = listOfBrews.getAllBrewNames();
 
         // set adapter
-        mAdapter = new RecyclerAdapter(myDataset);
+        mAdapter = new RecyclerAdapter(this, myDataset);
         recyclerView.setAdapter(mAdapter);
+        adapter.setClickListener(this);
 
     }
 
@@ -50,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
      */
     private void loadData() {
 
+    }
+
+    public void createBrew() {
+        Intent intent = new Intent(this, BrewActivity.class);
+        startActivity(intent);
     }
 
 }
