@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         fab = (FloatingActionButton) findViewById(R.id.createBrewButton);
-        fab.setOnClickListener();
+//        fab.setOnClickListener();
 
         loadData();
 

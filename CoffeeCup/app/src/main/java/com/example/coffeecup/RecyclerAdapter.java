@@ -2,6 +2,7 @@ package com.example.coffeecup;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -32,8 +33,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     @NonNull
     @Override
     public RecyclerAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        TextView v = (TextView) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recyclerview_row, parent, false);
+        TextView v = (TextView) mInflater.inflate(R.layout.recyclerview_row, parent, false);
 
         return new MyViewHolder(v);
     }
