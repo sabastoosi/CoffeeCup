@@ -1,5 +1,6 @@
 package com.example.coffeecup;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -11,7 +12,8 @@ import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
 
-    private final ArrayList<String> mDataset;
+    private ArrayList<String> mDataset = new ArrayList<String>();
+    private Context context;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView textView;
@@ -22,15 +24,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         }
     }
 
-    public RecyclerAdapter(ArrayList<String> myDataset) {
+    public RecyclerAdapter(ArrayList<String> myDataset, Context c) {
         mDataset = myDataset;
+        context = c;
     }
 
     @NonNull
     @Override
     public RecyclerAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        TextView v = (TextView) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.activity_main, parent, false);
+        TextView v = (TextView) LayoutInflater.from(context)
+                .inflate(R.layout.recyclerview_row, parent, false);
 
         return new MyViewHolder(v);
     }
