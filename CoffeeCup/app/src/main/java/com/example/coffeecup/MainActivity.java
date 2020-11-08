@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         // linear layout init
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        
+
         // set adapter
         mAdapter = new MyAdapter(this, myDataset);
         recyclerView.setAdapter(mAdapter);
@@ -45,12 +45,14 @@ public class MainActivity extends AppCompatActivity {
     private void loadData() {
         Bean myBean = new Bean("bean", "dark", "10/1/2020" );
         Brew firstBrew = new Brew("BrewOne", "10/8/2020", 95, myBean, 10, 10, "aeropress", 10, 10 );
+        Brew secondBrew = new Brew("BrewTwo", "10/8/2020", 96, myBean, 15, 8, "aeropress", 10, 0);
         listOfBrews.addBrew(firstBrew);
+        listOfBrews.addBrew(secondBrew);
         myDataset = listOfBrews.getAllBrews();
     }
 
     public void createBrew(View view) {
-        Intent intent = new Intent(this, BrewActivity.class);
+        Intent intent = new Intent(this, NewBrewActivity.class);
         startActivity(intent);
     }
 
