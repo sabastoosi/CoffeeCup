@@ -6,6 +6,10 @@ public class ListOfBrews {
 
     private static ArrayList<Brew> listOfBrews;
 
+    /**
+     This method returns all brews in an array of Brew objects
+     @return - ArrayList of Brew objects
+     */
     public ArrayList<Brew> getAllBrews() {
         return listOfBrews;
     }
