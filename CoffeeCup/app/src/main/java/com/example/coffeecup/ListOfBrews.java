@@ -18,11 +18,11 @@ public class ListOfBrews {
      This method returns all brew names in an array of strings
      @return - array of strings
      */
-    public String[] getAllBrewNames() {
-       String[] names = new String[listOfBrews.size()];
+    public ArrayList<String> getAllBrewNames() {
+       ArrayList<String> names = new ArrayList<String>();
 
         for (int i=0; i < listOfBrews.size(); i ++) {
-            names[i] = listOfBrews.get(i).getmName();
+            names.add(listOfBrews.get(i).getmName());
         }
         return names;
     }
@@ -31,11 +31,11 @@ public class ListOfBrews {
      This method returns all brew dates in an array of strings
      @return - array of strings
      */
-    public String[] getAllBrewDates() {
-        String[] dates = new String[listOfBrews.size()];
+    public ArrayList<String> getAllBrewDates() {
+        ArrayList<String> dates = new ArrayList<String>();
 
         for (int i=0; i < listOfBrews.size(); i ++) {
-            dates[i] = listOfBrews.get(i).getmDate();
+            dates.add(listOfBrews.get(i).getmDate());
         }
         return dates;
     }
