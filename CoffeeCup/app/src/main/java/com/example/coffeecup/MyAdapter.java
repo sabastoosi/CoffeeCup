@@ -16,6 +16,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private ArrayList<Brew> mDataset = new ArrayList<Brew>();
     private LayoutInflater mInflater;
+//    private ItemClickListener mClickListener;
 
     public MyAdapter(Context context, ArrayList<Brew> myDataset) {
         this.mInflater = LayoutInflater.from(context);
@@ -28,7 +29,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public MyViewHolder(View v) {
             super(v);
             textView = v.findViewById(R.id.brewName);
+
         }
+//        @Override
+//        public void onClick(View view) {
+//            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+//        }
     }
 
     @NonNull
