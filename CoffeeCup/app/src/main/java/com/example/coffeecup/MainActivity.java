@@ -28,14 +28,12 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         fab = (FloatingActionButton) findViewById(R.id.createBrewButton);
-
-
-
         loadData();
 
         // linear layout init
         layoutManager = new LinearLayoutManager(this);
-
+        recyclerView.setLayoutManager(layoutManager);
+        
         // set adapter
         mAdapter = new MyAdapter(this, myDataset);
         recyclerView.setAdapter(mAdapter);
