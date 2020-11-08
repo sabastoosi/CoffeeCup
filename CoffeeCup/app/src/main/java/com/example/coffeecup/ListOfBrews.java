@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ListOfBrews {
 
-    private static ArrayList<Brew> listOfBrews;
+    private static ArrayList<Brew> listOfBrews = new ArrayList<Brew>();
 
     /**
      This method returns all brews in an array of Brew objects
