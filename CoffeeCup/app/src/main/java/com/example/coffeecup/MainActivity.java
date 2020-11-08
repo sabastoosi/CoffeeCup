@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
+    private String[] myDataset;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
