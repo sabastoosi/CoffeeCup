@@ -7,9 +7,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
 
-    private final String[] mDataset;
+    private final ArrayList<String> mDataset;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView textView;
@@ -20,7 +22,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         }
     }
 
-    public RecyclerAdapter(String[] myDataset) {
+    public RecyclerAdapter(ArrayList<String> myDataset) {
         mDataset = myDataset;
     }
 
@@ -35,11 +37,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerAdapter.MyViewHolder holder, int position) {
-        holder.textView.setText(mDataset[position]);
+        holder.textView.setText(mDataset.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return mDataset.size();
     }
 }
