@@ -4,6 +4,7 @@ public class Brew {
     private String mName;
     private String mDate;
     private int mWaterTemp;
+    private int mWaterMass;
     private Bean mBeanType;
     private int mCoffeeMass;
     private int mGrindSize;
@@ -26,10 +27,11 @@ public class Brew {
      @param brewTime - the time brewed
      @param waterDilutionMass - the water dilution mass
      */
-    public Brew(String name, String date, int waterTemp, Bean beanType, int coffeeMass, int grindSize, String brewer, int brewTime, int waterDilutionMass) {
+    public Brew(String name, String date, int waterTemp, int waterMass, Bean beanType, int coffeeMass, int grindSize, String brewer, int brewTime, int waterDilutionMass) {
         mName = name;
         mDate = date;
         mWaterTemp = waterTemp;
+        mWaterMass = waterMass;
         mBeanType = beanType;
         mCoffeeMass = coffeeMass;
         mGrindSize = grindSize;
@@ -60,6 +62,14 @@ public class Brew {
      */
     public int getmWaterTemp() {
         return mWaterTemp;
+    }
+
+    /**
+     * This method returns the water mass of a given brew
+     * @return the int water mass of the brew
+     */
+    public int getmWaterMass() {
+        return mWaterMass;
     }
 
     /**
@@ -153,6 +163,13 @@ public class Brew {
      */
     public void setmWaterTemp(int mWaterTemp) {
         this.mWaterTemp = mWaterTemp;
+    }
+
+    /**
+     This method sets the water temp of a given brew
+     */
+    public void setmWaterMass(int mWaterMass) {
+        this.mWaterMass = mWaterMass;
     }
 
     /**
