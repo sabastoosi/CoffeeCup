@@ -20,6 +20,7 @@ public class Brew {
      @param name - the name of the brew
      @param date - the date of the brew
      @param waterTemp - the temperature of the water
+     @param waterMass - the mass of the water brewed
      @param beanType - the type of bean used
      @param coffeeMass - the mass of the coffee used
      @param grindSize - the size of the grind
