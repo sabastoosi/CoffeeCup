@@ -43,7 +43,7 @@ public class NewBrewActivity extends AppCompatActivity {
         brewer = findViewById(R.id.brewer);
         brewTime = findViewById(R.id.brewTime);
         waterDilutionMass = findViewById(R.id.waterDilutionMass);
-        createButton = findViewById(R.id.createButton);
+        createButton = findViewById(R.id.editButton);
     }
 
     public void createButtonClicked(View view) {
