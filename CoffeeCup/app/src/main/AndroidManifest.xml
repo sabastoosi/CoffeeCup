@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CoffeeCup">
-        <activity android:name=".NewBrewActivity"></activity>
+        <activity android:name=".EditBrew"></activity>
+        <activity android:name=".NewBrewActivity" />
         <activity android:name=".ViewBrewActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

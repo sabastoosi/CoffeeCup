@@ -2,6 +2,7 @@ package com.example.coffeecup;
 
 import android.content.Context;
 import android.content.Intent;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,9 +53,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             @Override
             public void onClick(View v) {
                 context = v.getContext();
-//                Log.d("row", "row: " + holder.textView.getText());
                 Intent intent = new Intent(context, ViewBrewActivity.class);
-                intent.putExtra("brewName", holder.textView.getText());
+                intent.putExtra("name", holder.textView.getText());
                 context.startActivity(intent);
             }
         });

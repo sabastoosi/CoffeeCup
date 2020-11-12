@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,7 @@ public class ViewBrewActivity extends AppCompatActivity {
     Button editButton;
     Button deleteButton;
     Button evaluateButton;
+    Button backButton;
     ListOfBrews listOfBrews = new ListOfBrews();
     Brew brew;
 
@@ -52,10 +54,9 @@ public class ViewBrewActivity extends AppCompatActivity {
         deleteButton = findViewById(R.id.editButton);
         evaluateButton = findViewById(R.id.evaluateButton);
 
-        // get brew name from row clicked
+        // get name
         Intent intent = getIntent();
-        String brewName = intent.getExtras().getString("brewName");
-        Log.d("row", "row: " + brewName);
+        String brewName = intent.getExtras().getString("name");
 
         // find brew with name
         brew = listOfBrews.find(brewName);
@@ -76,7 +77,9 @@ public class ViewBrewActivity extends AppCompatActivity {
     }
 
     public void editButtonClicked(View view) {
-
+        Intent intent = new Intent(this, EditBrew.class);
+        intent.putExtra("name", name.getText().toString());
+        startActivity(intent);
     }
 
     public void deleteButtonClicked(View view) {
@@ -85,5 +88,10 @@ public class ViewBrewActivity extends AppCompatActivity {
 
     public void evaluateButtonClicked(View view) {
 
+    }
+
+    public void backButtonClicked(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

@@ -274,5 +274,4 @@ public class Brew {
      This method sets the roast date of a given bean
      */
     public void setmBeanRoastDate(String roastDate) {this.mBeanType.setmRoastDate(roastDate);}
-
 }
