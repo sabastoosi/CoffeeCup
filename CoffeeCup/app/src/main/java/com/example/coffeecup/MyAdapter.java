@@ -52,7 +52,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             @Override
             public void onClick(View v) {
                 context = v.getContext();
-                Intent intent = new Intent(context, BrewActivity.class);
+                Intent intent = new Intent(context, ViewBrewActivity.class);
                 context.startActivity(intent);
             }
         });

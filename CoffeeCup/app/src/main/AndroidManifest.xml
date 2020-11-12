@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CoffeeCup">
         <activity android:name=".NewBrewActivity"></activity>
-        <activity android:name=".BrewActivity" />
+        <activity android:name=".ViewBrewActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

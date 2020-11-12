@@ -33,4 +33,18 @@
         app:srcCompat="@android:drawable/ic_menu_add"
         android:contentDescription="TODO"
         android:onClick="createBrew"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="133dp"
+        android:layout_height="33dp"
+        android:text="My Brews"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recycler_view"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

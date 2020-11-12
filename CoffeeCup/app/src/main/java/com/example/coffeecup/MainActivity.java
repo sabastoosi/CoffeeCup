@@ -43,11 +43,6 @@ public class MainActivity extends AppCompatActivity {
      * loads data from previous entries
      */
     private void loadData() {
-        Bean myBean = new Bean("bean", "dark", "10/1/2020" );
-        Brew firstBrew = new Brew("BrewOne", "10/8/2020", 95, 100, myBean, 10, 10, "aeropress", 10, 10 );
-        Brew secondBrew = new Brew("BrewTwo", "10/8/2020", 96, 100, myBean, 15, 8, "aeropress", 10, 0);
-        listOfBrews.addBrew(firstBrew);
-        listOfBrews.addBrew(secondBrew);
         myDataset = listOfBrews.getAllBrews();
     }
 
