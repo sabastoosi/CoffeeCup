@@ -146,6 +146,30 @@ public class Brew {
     }
 
     /**
+     This method returns the roast date of a given bean
+     @return the date roasted
+     */
+    public String getmBeanRoastDate() {
+        return mBeanType.getmRoastDate();
+    }
+
+    /**
+     This method returns the darkness of a given bean
+     @return the darkness strength of the bean
+     */
+    public String getmBeanDarkness() {
+        return mBeanType.getmDarkness();
+    }
+
+    /**
+     This method returns the bean name of a given bean
+     @return the name of the bean
+     */
+    public String getmBeanName() {
+        return mBeanType.getmName();
+    }
+
+    /**
      This method sets the name of a given brew
      */
     public void setmName(String mName) {
@@ -235,4 +259,20 @@ public class Brew {
     public void setmRating(int mRating) {
         this.mRating = mRating;
     }
+
+    /**
+     This method sets the bean name of a given bean
+     */
+    public void setmBeanName(String name) {this.mBeanType.setmName(name);}
+
+    /**
+     This method sets the darkness of a given bean
+     */
+    public void setmBeanDarkness(String darkness) {this.mBeanType.setmDarkness(darkness);}
+
+    /**
+     This method sets the roast date of a given bean
+     */
+    public void setmBeanRoastDate(String roastDate) {this.mBeanType.setmRoastDate(roastDate);}
+
 }

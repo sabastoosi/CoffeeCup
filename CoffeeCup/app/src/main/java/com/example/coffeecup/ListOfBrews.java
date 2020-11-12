@@ -52,7 +52,7 @@ public class ListOfBrews {
      This method deletes a brew from the master list of brews
      @param brewName - the name of the list we'd like to delete
      */
-    public static void deleteList(String brewName) {
+    public static void deleteBrew(String brewName) {
         for (int i = 0; i < listOfBrews.size(); i ++) {
             if (listOfBrews.get(i).getmName().equals(brewName)) {
                 listOfBrews.remove(i);
@@ -65,7 +65,7 @@ public class ListOfBrews {
      @param brewName - the name of the brew we'd like to rename
      @param newName - the new name of the brew
      */
-    public static void renameList(String brewName, String newName) {
+    public static void renameBrew(String brewName, String newName) {
         Brew brew;
         // find the brew object with the name
         brew = find(brewName);

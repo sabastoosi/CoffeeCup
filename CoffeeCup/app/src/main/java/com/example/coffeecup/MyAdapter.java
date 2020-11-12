@@ -2,6 +2,7 @@ package com.example.coffeecup;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,12 +48,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position) {
         holder.textView.setText(mDataset.get(position).getmName());
-
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 context = v.getContext();
+//                Log.d("row", "row: " + holder.textView.getText());
                 Intent intent = new Intent(context, ViewBrewActivity.class);
+                intent.putExtra("brewName", holder.textView.getText());
                 context.startActivity(intent);
             }
         });
