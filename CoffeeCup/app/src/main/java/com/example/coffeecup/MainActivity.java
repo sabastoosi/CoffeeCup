@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private FloatingActionButton fab;
+    TextView noBrewsView;
     ListOfBrews listOfBrews = new ListOfBrews();
 
     @Override
@@ -28,6 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         fab = (FloatingActionButton) findViewById(R.id.createBrewButton);
+        noBrewsView = findViewById(R.id.noBrewsView);
+
+        // if there are no brews, we will display a message that says no brews. In the on create however,
+        // this will initially be invisible until we check if there are brews or not in loadData
+        noBrewsView.setVisibility(View.INVISIBLE);
+
+        // get brews
         loadData();
 
         // linear layout init
@@ -44,6 +53,11 @@ public class MainActivity extends AppCompatActivity {
      */
     private void loadData() {
         myDataset = listOfBrews.getAllBrews();
+
+        // if there are no brews, show the message that says "no brews" instead of an empty recycler view
+        if (myDataset.size() == 0) {
+            noBrewsView.setVisibility(View.VISIBLE);
+        }
     }
 
     public void createBrew(View view) {

@@ -47,4 +47,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/recycler_view"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/noBrewsView"
+        android:layout_width="135dp"
+        android:layout_height="35dp"
+        android:text="No brews to show. Please add a brew."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
 </androidx.constraintlayout.widget.ConstraintLayout>

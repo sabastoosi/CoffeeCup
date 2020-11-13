@@ -34,6 +34,7 @@ public class ViewBrewActivity extends AppCompatActivity {
     ToggleButton favoriteButton;
     ListOfBrews listOfBrews = new ListOfBrews();
     Brew brew;
+    String brewName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +63,7 @@ public class ViewBrewActivity extends AppCompatActivity {
 
         // get name
         Intent intent = getIntent();
-        String brewName = intent.getExtras().getString("name");
+        brewName = intent.getExtras().getString("name");
 
         // find brew with name
         brew = listOfBrews.find(brewName);
@@ -94,7 +95,9 @@ public class ViewBrewActivity extends AppCompatActivity {
     }
 
     public void deleteButtonClicked(View view) {
-
+        listOfBrews.deleteBrew(brewName);
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     public void evaluateButtonClicked(View view) {
