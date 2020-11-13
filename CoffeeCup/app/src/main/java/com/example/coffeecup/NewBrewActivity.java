@@ -23,6 +23,7 @@ public class NewBrewActivity extends AppCompatActivity {
     EditText brewTime;
     EditText waterDilutionMass;
     Button createButton;
+    EditText notes;
     ListOfBrews listOfBrews = new ListOfBrews();
 
     @Override
@@ -44,6 +45,7 @@ public class NewBrewActivity extends AppCompatActivity {
         brewTime = findViewById(R.id.brewTime);
         waterDilutionMass = findViewById(R.id.waterDilutionMass);
         createButton = findViewById(R.id.editButton);
+        notes = findViewById(R.id.notes);
     }
 
     public void createButtonClicked(View view) {
@@ -57,7 +59,8 @@ public class NewBrewActivity extends AppCompatActivity {
                 Integer.parseInt(grindSize.getText().toString()),
                 brewer.getText().toString(),
                 Integer.parseInt(brewTime.getText().toString()),
-                Integer.parseInt(waterDilutionMass.getText().toString()));
+                Integer.parseInt(waterDilutionMass.getText().toString()),
+                notes.getText().toString());
 
         listOfBrews.addBrew(brew);
 

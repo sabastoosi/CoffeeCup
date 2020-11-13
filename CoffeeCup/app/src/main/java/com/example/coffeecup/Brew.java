@@ -14,6 +14,8 @@ public class Brew {
     private int mExtraction;
     private int mStrength;
     private int mRating;
+    private String mNotes;
+    private Boolean isFavorite = false;
 
     /**
      The constructor for Brew objects
@@ -28,7 +30,7 @@ public class Brew {
      @param brewTime - the time brewed
      @param waterDilutionMass - the water dilution mass
      */
-    public Brew(String name, String date, int waterTemp, int waterMass, Bean beanType, int coffeeMass, int grindSize, String brewer, int brewTime, int waterDilutionMass) {
+    public Brew(String name, String date, int waterTemp, int waterMass, Bean beanType, int coffeeMass, int grindSize, String brewer, int brewTime, int waterDilutionMass, String notes) {
         mName = name;
         mDate = date;
         mWaterTemp = waterTemp;
@@ -39,6 +41,7 @@ public class Brew {
         mBrewer = brewer;
         mBrewTime = brewTime;
         mWaterDilutionMass = waterDilutionMass;
+        mNotes = notes;
     }
 
     /**
@@ -170,6 +173,22 @@ public class Brew {
     }
 
     /**
+     This method returns the notes for a given brew
+     @return the notes of the brew
+     */
+    public String getmNotes() {
+        return mNotes;
+    }
+
+    /**
+     This method returns whether a brew is a favorite or not
+     @return the favorite status of the brew
+     */
+    public Boolean getmFavoriteStatus() {
+        return isFavorite;
+    }
+
+    /**
      This method sets the name of a given brew
      */
     public void setmName(String mName) {
@@ -274,4 +293,14 @@ public class Brew {
      This method sets the roast date of a given bean
      */
     public void setmBeanRoastDate(String roastDate) {this.mBeanType.setmRoastDate(roastDate);}
+
+    /**
+     This method sets the notes of a given brew
+     */
+    public void setmNotes(String notes) {this.mNotes = notes;}
+
+    /**
+     This method sets the favorite status of a given brew
+     */
+    public void setIsFavorite(Boolean isFavorite) {this.isFavorite = isFavorite;}
 }

@@ -24,6 +24,7 @@ public class EditBrew extends AppCompatActivity {
     EditText brewer;
     EditText brewTime;
     EditText waterDilutionMass;
+    EditText notes;
     Button doneButton;
     ListOfBrews listOfBrews = new ListOfBrews();
     Brew brew;
@@ -47,6 +48,7 @@ public class EditBrew extends AppCompatActivity {
         brewTime = findViewById(R.id.editBrewTime);
         waterDilutionMass = findViewById(R.id.editWaterDilutionMass);
         doneButton = findViewById(R.id.doneButton);
+        notes = findViewById(R.id.editNotes);
 
         // get brew name from row clicked
         Intent intent = getIntent();
@@ -68,6 +70,7 @@ public class EditBrew extends AppCompatActivity {
         brewer.setText(brew.getmBrewer());
         brewTime.setText(String.valueOf(brew.getmBrewTime()));
         waterDilutionMass.setText(String.valueOf(brew.getmWaterDilutionMass()));
+        notes.setText(String.valueOf("Notes: " + brew.getmNotes()));
     }
 
     public void doneButtonClicked(View view) {
@@ -84,6 +87,7 @@ public class EditBrew extends AppCompatActivity {
         brew.setmBrewer(brewer.getText().toString());
         brew.setmBrewTime(Integer.parseInt(brewTime.getText().toString()));
         brew.setmWaterDilutionMass(Integer.parseInt(waterDilutionMass.getText().toString()));
+        brew.setmNotes(notes.getText().toString());
 
         // go back to previous screen
         Intent intent = new Intent(this, MainActivity.class);

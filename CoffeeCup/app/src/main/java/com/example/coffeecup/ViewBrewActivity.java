@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 public class ViewBrewActivity extends AppCompatActivity {
 
@@ -25,10 +26,12 @@ public class ViewBrewActivity extends AppCompatActivity {
     TextView brewer;
     TextView brewTime;
     TextView waterDilutionMass;
+    TextView notes;
     Button editButton;
     Button deleteButton;
     Button evaluateButton;
     Button backButton;
+    ToggleButton favoriteButton;
     ListOfBrews listOfBrews = new ListOfBrews();
     Brew brew;
 
@@ -53,6 +56,9 @@ public class ViewBrewActivity extends AppCompatActivity {
         editButton = findViewById(R.id.editButton);
         deleteButton = findViewById(R.id.editButton);
         evaluateButton = findViewById(R.id.evaluateButton);
+        backButton = findViewById(R.id.backButton);
+        notes = findViewById(R.id.viewNotes);
+        favoriteButton = findViewById(R.id.favoriteButton);
 
         // get name
         Intent intent = getIntent();
@@ -74,6 +80,11 @@ public class ViewBrewActivity extends AppCompatActivity {
         brewer.setText(brew.getmBrewer());
         brewTime.setText(String.valueOf(brew.getmBrewTime()));
         waterDilutionMass.setText(String.valueOf(brew.getmWaterDilutionMass()));
+        notes.setText(String.valueOf("Notes: " + brew.getmNotes()));
+
+        if (brew.getmFavoriteStatus() == true) {
+            favoriteButton.setChecked(true);
+        }
     }
 
     public void editButtonClicked(View view) {
@@ -93,5 +104,15 @@ public class ViewBrewActivity extends AppCompatActivity {
     public void backButtonClicked(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void favoriteButtonClicked(View view) {
+        if (favoriteButton.isChecked()) {
+            brew.setIsFavorite(true);
+            favoriteButton.setChecked(true);
+        } else {
+            brew.setIsFavorite(false);
+            favoriteButton.setChecked(false);
+        }
     }
 }
