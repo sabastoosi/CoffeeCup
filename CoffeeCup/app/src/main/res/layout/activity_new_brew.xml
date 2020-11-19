@@ -68,7 +68,7 @@
         android:id="@+id/textView6"
         android:layout_width="97dp"
         android:layout_height="28dp"
-        android:text="Water Temp Fº:"
+        android:text="Water Temp:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.079"

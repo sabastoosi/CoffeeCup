@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class NewBrewActivity extends AppCompatActivity {
 
     EditText name;
@@ -46,6 +50,7 @@ public class NewBrewActivity extends AppCompatActivity {
         waterDilutionMass = findViewById(R.id.waterDilutionMass);
         createButton = findViewById(R.id.editButton);
         notes = findViewById(R.id.notes);
+        setDate();
     }
 
     public void createButtonClicked(View view) {
@@ -67,5 +72,12 @@ public class NewBrewActivity extends AppCompatActivity {
         // go to main list of brews
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    /**
+     * Function to automatically set the date of the new brew to current date
+     */
+    private void setDate() {
+        date.setText(new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).format(new Date()));
     }
 }
