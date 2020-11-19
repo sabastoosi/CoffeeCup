@@ -101,7 +101,8 @@ public class ViewBrewActivity extends AppCompatActivity {
     }
 
     public void evaluateButtonClicked(View view) {
-
+        Intent intent = new Intent(this, EvaluateActivity.class);
+        startActivity(intent);
     }
 
     public void backButtonClicked(View view) {

@@ -70,7 +70,7 @@ public class NewBrewActivity extends AppCompatActivity {
         listOfBrews.addBrew(brew);
 
         // go to main list of brews
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, PostBrewActivity.class);
         startActivity(intent);
     }
 
