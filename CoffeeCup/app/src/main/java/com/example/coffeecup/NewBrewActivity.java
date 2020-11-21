@@ -51,7 +51,6 @@ public class NewBrewActivity extends AppCompatActivity {
         brewTime = findViewById(R.id.brewTime);
         waterDilutionMass = findViewById(R.id.waterDilutionMass);
         createButton = findViewById(R.id.editButton);
-        notes = findViewById(R.id.notes);
         setDate();
     }
 
@@ -66,8 +65,7 @@ public class NewBrewActivity extends AppCompatActivity {
                 Integer.parseInt(grindSize.getText().toString()),
                 brewer.getText().toString(),
                 Integer.parseInt(brewTime.getText().toString()),
-                Integer.parseInt(waterDilutionMass.getText().toString()),
-                notes.getText().toString());
+                Integer.parseInt(waterDilutionMass.getText().toString()));
 
         listOfBrews.addBrew(brew);
 

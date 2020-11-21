@@ -30,7 +30,7 @@ public class Brew {
      @param brewTime - the time brewed
      @param waterDilutionMass - the water dilution mass
      */
-    public Brew(String name, String date, int waterTemp, int waterMass, Bean beanType, int coffeeMass, int grindSize, String brewer, int brewTime, int waterDilutionMass, String notes) {
+    public Brew(String name, String date, int waterTemp, int waterMass, Bean beanType, int coffeeMass, int grindSize, String brewer, int brewTime, int waterDilutionMass) {
         mName = name;
         mDate = date;
         mWaterTemp = waterTemp;
@@ -41,7 +41,6 @@ public class Brew {
         mBrewer = brewer;
         mBrewTime = brewTime;
         mWaterDilutionMass = waterDilutionMass;
-        mNotes = notes;
     }
 
     /**

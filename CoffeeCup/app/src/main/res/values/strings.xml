@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CoffeeCup</string>
+    <string name="strength_description">Strength is the amount of dissolved matter in the cup.
+        A strong cup will taste harsh and feel soupy while a weak one tastes dilute with a watery feel.</string>
+    <string name="extraction_description">Extraction is the flavor profile of the cup.
+        An under-extracted cup will taste sour while an over-extracted cup tastes burnt and overtly bitter.</string>
 </resources>
