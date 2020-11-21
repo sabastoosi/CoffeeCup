@@ -81,7 +81,8 @@ public class ViewBrewActivity extends AppCompatActivity {
         brewer.setText(brew.getmBrewer());
         brewTime.setText(String.valueOf(brew.getmBrewTime()));
         waterDilutionMass.setText(String.valueOf(brew.getmWaterDilutionMass()));
-        notes.setText(String.valueOf("Notes: " + brew.getmNotes()));
+        // TODO notes separate text view
+        notes.setText(String.valueOf(brew.getmNotes()));
 
         if (brew.getmFavoriteStatus() == true) {
             favoriteButton.setChecked(true);
@@ -102,6 +103,7 @@ public class ViewBrewActivity extends AppCompatActivity {
 
     public void evaluateButtonClicked(View view) {
         Intent intent = new Intent(this, EvaluateActivity.class);
+        intent.putExtra("name", name.getText().toString());
         startActivity(intent);
     }
 
