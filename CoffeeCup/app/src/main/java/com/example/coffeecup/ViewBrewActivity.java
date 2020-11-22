@@ -84,6 +84,8 @@ public class ViewBrewActivity extends AppCompatActivity {
         // TODO notes separate text view
         notes.setText(String.valueOf(brew.getmNotes()));
 
+        // TODO strength and extraction
+
         if (brew.getmFavoriteStatus() == true) {
             favoriteButton.setChecked(true);
         }

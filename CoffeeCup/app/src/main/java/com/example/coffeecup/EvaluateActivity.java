@@ -41,4 +41,9 @@ public class EvaluateActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    private void evaluateBrew() {
+        int extraction = brew.getmExtraction();
+        int strength = brew.getmStrength();
+    }
 }
