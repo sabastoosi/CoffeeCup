@@ -2,14 +2,20 @@ package com.example.coffeecup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import java.lang.Math;
+import java.util.Random;
 
 public class EvaluateActivity extends AppCompatActivity {
+
+    private final int DOSE_RATE = 2;
+    private final int WATER_RATE = 4;
+    private final int BREW_RATE = 5;
 
     Brew brew;
     String notes;
@@ -20,6 +26,7 @@ public class EvaluateActivity extends AppCompatActivity {
     Button finishButton;
 
     ListOfBrews listOfBrews = new ListOfBrews();
+    Random r = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +44,6 @@ public class EvaluateActivity extends AppCompatActivity {
 
         brewName.setText(brew.getmName());
         brewDate.setText(brew.getmDate());
-
 
         evaluateBrew();
 
@@ -67,8 +73,7 @@ public class EvaluateActivity extends AppCompatActivity {
                 }
             }
             else if (extraction > 5) { // + extraction dec
-
-                decExtIncStr((extraction + strength) / 2);
+                decExtIncStr(5 - strength, extraction - 5);
             }
             else {  // only increase strength
                 incStr(5 - strength);
@@ -76,7 +81,7 @@ public class EvaluateActivity extends AppCompatActivity {
         }
         else if (strength > 5) { // strength dec
             if (extraction < 5) { // + extraction inc
-                incExtDecStr((extraction + strength) / 2);
+                incExtDecStr(strength - 5, 5 - extraction);
             }
             else if (extraction > 5) {  // + extraction dec
                 // test which magnitude is greater
@@ -98,7 +103,7 @@ public class EvaluateActivity extends AppCompatActivity {
                 decExt(extraction - 5);
             }
             else { // perfectly balanced cup
-
+                message.setText("No changes necessary to balance this brew.");
             }
         }
     }
@@ -108,7 +113,18 @@ public class EvaluateActivity extends AppCompatActivity {
      * @param magnitude brew change intensity
      */
     private void incStr(int magnitude) {
+        int water = brew.getmWaterMass();
+        int dose = brew.getmCoffeeMass();
 
+        if (r.nextInt(101) < 50) {
+            int newWater = water - (magnitude * WATER_RATE);
+            message.setText("For the next brew, it is recommended that the water weight be lowered from "
+                    + water + "g to " + newWater + "g.");
+        } else {
+            int newDose = dose + (magnitude * DOSE_RATE);
+            message.setText("For the next brew, it is recommended that the coffee weight be increased from "
+                    + dose + "g to " + newDose + "g.");
+        }
     }
 
     /**
@@ -116,7 +132,18 @@ public class EvaluateActivity extends AppCompatActivity {
      * @param magnitude brew change intensity
      */
     private void decStr(int magnitude) {
+        int water = brew.getmWaterMass();
+        int dose = brew.getmCoffeeMass();
 
+        if (r.nextInt(101) < 50) {
+            int newWater = water + (magnitude * WATER_RATE);
+            message.setText("For the next brew, it is recommended that the water weight be increased from "
+                    + water + "g to " + newWater + "g.");
+        } else {
+            int newDose = dose - (magnitude * DOSE_RATE);
+            message.setText("For the next brew, it is recommended that the coffee weight be lowered from "
+                    + dose + "g to " + newDose + "g.");
+        }
     }
 
     /**
@@ -124,7 +151,22 @@ public class EvaluateActivity extends AppCompatActivity {
      * @param magnitude brew change intensity
      */
     private void incExt(int magnitude) {
+        int time = brew.getmBrewTime();
+        int grind = brew.getmGrindSize();
 
+        if (magnitude < 4) {
+            int newTime = time + (magnitude * BREW_RATE);
+            message.setText("For the next brew, it is recommended that the brew time be increased from "
+                    + time + " seconds to " + newTime + "seconds.");
+        } else {
+            int newGrind;
+            if (magnitude == 4)
+                newGrind = grind - 1;
+            else
+                newGrind = grind - 2;
+            message.setText("For the next brew, it is recommended that the grind size be lowered from a "
+                    + grind + " to a " + newGrind + ".");
+        }
     }
 
     /**
@@ -132,22 +174,133 @@ public class EvaluateActivity extends AppCompatActivity {
      * @param magnitude brew change intensity
      */
     private void decExt(int magnitude) {
+        int time = brew.getmBrewTime();
+        int grind = brew.getmGrindSize();
 
+        if (r.nextInt(101) < 50) {
+            int newTime = time - (magnitude * BREW_RATE);
+            message.setText("For the next brew, it is recommended that the brew time be decreased from "
+                    + time + " seconds to " + newTime + "seconds.");
+        } else {
+            int newGrind;
+            if (magnitude == 4)
+                newGrind = grind + 1;
+            else
+                newGrind = grind + 2;
+            message.setText("For the next brew, it is recommended that the grind size be increased from a "
+                    + grind + " to a " + newGrind + ".");
+        }
     }
 
     /**
      * NW + W coffee compass.
-     * @param magnitude brew change intensity
+     * @param magS brew strength change intensity
+     * @param magE brew extraction change intensity
      */
-    private void decExtIncStr(int magnitude) {
+    private void decExtIncStr(int magS, int magE) {
+        int time = brew.getmBrewTime();
+        int grind = brew.getmGrindSize();
+        int water = brew.getmWaterMass();
+        int dose = brew.getmCoffeeMass();
 
+        if (magS > magE) {  // focus more on strength
+            if (r.nextInt(101) < 50) {
+                int newWater = water - (magS * WATER_RATE);
+                int newTime = time - (magE * (BREW_RATE - 2));
+                message.setText("For the next brew, it is recommended that the water weight be lowered from "
+                        + water + "g to " + newWater + "g, and that the brew time be decreased from "
+                        + time + " seconds to " + newTime + " seconds.");
+            } else {
+                int newDose = dose + (magS * DOSE_RATE);
+                int newTime = time - (magE * (BREW_RATE - 2));
+                message.setText("For the next brew, it is recommended that the coffee weight be increased from "
+                        + dose + "g to " + newDose + "g, and that the brew time be shortened from "
+                        + time + " seconds to " + newTime + " seconds.");
+            }
+        } else if (magS < magE) { // focus more on extraction
+            if (magE < 4) {
+                int newTime = time - (magE * BREW_RATE);
+                message.setText("For the next brew, it is recommended that the brew time be decreased from "
+                        + time + " seconds to " + newTime + "seconds.");
+            } else {
+                int newGrind;
+                if (magE == 4)
+                    newGrind = grind + 1;
+                else
+                    newGrind = grind + 2;
+                message.setText("For the next brew, it is recommended that the grind size be increased from a "
+                        + grind + " to a " + newGrind + ".");
+            }
+        } else {    // equal focus
+            if (r.nextInt(101) < 50) {
+                int newWater = water - (magS * WATER_RATE);
+                int newTime = time - (magE * BREW_RATE);
+                message.setText("For the next brew, it is recommended that the water weight be lowered from "
+                        + water + "g to " + newWater + "g, and that the brew time be decreased from "
+                        + time + " seconds to " + newTime + " seconds.");
+            } else {
+                int newDose = dose + (magS * DOSE_RATE);
+                int newTime = time - (magE * BREW_RATE);
+                message.setText("For the next brew, it is recommended that the coffee weight be increased from "
+                        + dose + "g to " + newDose + "g, and that the brew time be shortened from "
+                        + time + " seconds to " + newTime + " seconds.");
+            }
+        }
     }
 
     /**
      * SE + E coffee compass.
-     * @param magnitude brew change intensity
+     * @param magS brew strength change intensity
+     * @param magE brew extraction change intensity
      */
-    private void incExtDecStr(int magnitude) {
+    private void incExtDecStr(int magS, int magE) {
+        int time = brew.getmBrewTime();
+        int grind = brew.getmGrindSize();
+        int water = brew.getmWaterMass();
+        int dose = brew.getmCoffeeMass();
 
+        if (magS > magE) {  // focus more on strength
+            if (r.nextInt(101) < 50) {
+                int newWater = water + (magS * WATER_RATE);
+                int newTime = time + (magE * (BREW_RATE - 2));
+                message.setText("For the next brew, it is recommended that the water weight be raised from "
+                        + water + "g to " + newWater + "g, and that the brew time be increased from "
+                        + time + " seconds to " + newTime + " seconds.");
+            } else {
+                int newDose = dose - (magS * DOSE_RATE);
+                int newTime = time + (magE * (BREW_RATE - 2));
+                message.setText("For the next brew, it is recommended that the coffee weight be lowered from "
+                        + dose + "g to " + newDose + "g, and that the brew time be lengthened from "
+                        + time + " seconds to " + newTime + " seconds.");
+            }
+        } else if (magS < magE) { // focus more on extraction
+            if (magE < 4) {
+                int newTime = time + (magE * BREW_RATE);
+                message.setText("For the next brew, it is recommended that the brew time be lengthened from "
+                        + time + " seconds to " + newTime + "seconds.");
+            } else {
+                int newGrind;
+                if (magE == 4)
+                    newGrind = grind - 1;
+                else
+                    newGrind = grind - 2;
+                message.setText("For the next brew, it is recommended that the grind size be decreased from a "
+                        + grind + " to a " + newGrind + ".");
+            }
+        } else {    // equal focus
+            if (r.nextInt(101) < 50) {
+                int newWater = water + (magS * WATER_RATE);
+                int newTime = time + (magE * BREW_RATE);
+                message.setText("For the next brew, it is recommended that the water weight be increased from "
+                        + water + "g to " + newWater + "g, and that the brew time be increased from "
+                        + time + " seconds to " + newTime + " seconds.");
+            } else {
+                int newDose = dose - (magS * DOSE_RATE);
+                int newTime = time + (magE * BREW_RATE);
+                message.setText("For the next brew, it is recommended that the coffee weight be lowered from "
+                        + dose + "g to " + newDose + "g, and that the brew time be increased from "
+                        + time + " seconds to " + newTime + " seconds.");
+            }
+        }
     }
 }
