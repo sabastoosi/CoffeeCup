@@ -75,6 +75,11 @@ public class NewBrewActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void timerButtonClicked(View view) {
+        Intent intent = new Intent(this, TimerActivity.class);
+        startActivity(intent);
+    }
+
     /**
      * Function to automatically set the date of the new brew to current date
      */
