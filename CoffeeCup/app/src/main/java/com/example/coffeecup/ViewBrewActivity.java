@@ -27,6 +27,8 @@ public class ViewBrewActivity extends AppCompatActivity {
     TextView brewTime;
     TextView waterDilutionMass;
     TextView notes;
+    TextView strength;
+    TextView extraction;
     Button editButton;
     Button deleteButton;
     Button evaluateButton;
@@ -60,6 +62,8 @@ public class ViewBrewActivity extends AppCompatActivity {
         backButton = findViewById(R.id.backButton);
         notes = findViewById(R.id.viewNotes);
         favoriteButton = findViewById(R.id.favoriteButton);
+        strength = findViewById(R.id.viewStrength);
+        extraction = findViewById(R.id.viewExtraction);
 
         // get name
         Intent intent = getIntent();
@@ -81,10 +85,9 @@ public class ViewBrewActivity extends AppCompatActivity {
         brewer.setText(brew.getmBrewer());
         brewTime.setText(String.valueOf(brew.getmBrewTime()));
         waterDilutionMass.setText(String.valueOf(brew.getmWaterDilutionMass()));
-        // TODO notes separate text view
         notes.setText(String.valueOf(brew.getmNotes()));
-
-        // TODO strength and extraction
+        strength.setText(String.valueOf(brew.getmStrength()));
+        extraction.setText(String.valueOf(brew.getmExtraction()));
 
         if (brew.getmFavoriteStatus() == true) {
             favoriteButton.setChecked(true);

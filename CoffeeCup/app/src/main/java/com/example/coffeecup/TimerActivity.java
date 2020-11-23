@@ -2,6 +2,7 @@ package com.example.coffeecup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -138,5 +139,10 @@ public class TimerActivity extends AppCompatActivity {
     public void resetButtonClicked(View view) {
         running = false;
         seconds = 0;
+    }
+
+    public void timerBackButtonClicked(View view) {
+        Intent intent = new Intent(this, NewBrewActivity.class);
+        startActivity(intent);
     }
 }
