@@ -2,6 +2,7 @@ package com.example.coffeecup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,10 +22,18 @@ public class TimerActivity extends AppCompatActivity {
     private boolean running;
     private boolean wasRunning;
 
+    Brew brew;
+    ListOfBrews listOfBrews = new ListOfBrews();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle.getString("Brew name") != null) {
+            brew = ListOfBrews.find(bundle.getString("Brew name"));
+        }
 
         // find views
         start = findViewById(R.id.startButton);
@@ -142,7 +151,8 @@ public class TimerActivity extends AppCompatActivity {
     }
 
     public void timerBackButtonClicked(View view) {
-        Intent intent = new Intent(this, NewBrewActivity.class);
+        Intent intent = new Intent(this, PostBrewActivity.class);
+        intent.putExtra("Brew name", brew.getmName());
         startActivity(intent);
     }
 }

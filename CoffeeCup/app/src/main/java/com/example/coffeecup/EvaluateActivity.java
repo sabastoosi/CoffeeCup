@@ -119,11 +119,11 @@ public class EvaluateActivity extends AppCompatActivity {
         if (r.nextInt(101) < 50) {
             int newWater = water - (magnitude * WATER_RATE);
             message.setText("For the next brew, it is recommended that the water weight be lowered from "
-                    + water + "g to " + newWater + "g.");
+                    + water + " g to " + newWater + " g.");
         } else {
             int newDose = dose + (magnitude * DOSE_RATE);
             message.setText("For the next brew, it is recommended that the coffee weight be increased from "
-                    + dose + "g to " + newDose + "g.");
+                    + dose + " g to " + newDose + " g.");
         }
     }
 
@@ -138,11 +138,11 @@ public class EvaluateActivity extends AppCompatActivity {
         if (r.nextInt(101) < 50) {
             int newWater = water + (magnitude * WATER_RATE);
             message.setText("For the next brew, it is recommended that the water weight be increased from "
-                    + water + "g to " + newWater + "g.");
+                    + water + " g to " + newWater + " g.");
         } else {
             int newDose = dose - (magnitude * DOSE_RATE);
             message.setText("For the next brew, it is recommended that the coffee weight be lowered from "
-                    + dose + "g to " + newDose + "g.");
+                    + dose + " g to " + newDose + " g.");
         }
     }
 
@@ -157,7 +157,7 @@ public class EvaluateActivity extends AppCompatActivity {
         if (magnitude < 4) {
             int newTime = time + (magnitude * BREW_RATE);
             message.setText("For the next brew, it is recommended that the brew time be increased from "
-                    + time + " seconds to " + newTime + "seconds.");
+                    + time + " seconds to " + newTime + " seconds.");
         } else {
             int newGrind;
             if (magnitude == 4)
@@ -180,7 +180,7 @@ public class EvaluateActivity extends AppCompatActivity {
         if (r.nextInt(101) < 50) {
             int newTime = time - (magnitude * BREW_RATE);
             message.setText("For the next brew, it is recommended that the brew time be decreased from "
-                    + time + " seconds to " + newTime + "seconds.");
+                    + time + " seconds to " + newTime + " seconds.");
         } else {
             int newGrind;
             if (magnitude == 4)
@@ -221,7 +221,7 @@ public class EvaluateActivity extends AppCompatActivity {
             if (magE < 4) {
                 int newTime = time - (magE * BREW_RATE);
                 message.setText("For the next brew, it is recommended that the brew time be decreased from "
-                        + time + " seconds to " + newTime + "seconds.");
+                        + time + " seconds to " + newTime + " seconds.");
             } else {
                 int newGrind;
                 if (magE == 4)
@@ -277,7 +277,7 @@ public class EvaluateActivity extends AppCompatActivity {
             if (magE < 4) {
                 int newTime = time + (magE * BREW_RATE);
                 message.setText("For the next brew, it is recommended that the brew time be lengthened from "
-                        + time + " seconds to " + newTime + "seconds.");
+                        + time + " seconds to " + newTime + " seconds.");
             } else {
                 int newGrind;
                 if (magE == 4)

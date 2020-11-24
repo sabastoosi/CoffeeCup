@@ -35,7 +35,6 @@ public class NewBrewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_brew);
-        // TODO getExtras
 
         // find views
         name = findViewById(R.id.name);
@@ -70,15 +69,15 @@ public class NewBrewActivity extends AppCompatActivity {
         listOfBrews.addBrew(brew);
 
         // go to main list of brews
-        Intent intent = new Intent(this, PostBrewActivity.class);
+        Intent intent = new Intent(this, TimerActivity.class);
         intent.putExtra("Brew name", brew.getmName());
         startActivity(intent);
     }
 
-    public void timerButtonClicked(View view) {
-        Intent intent = new Intent(this, TimerActivity.class);
-        startActivity(intent);
-    }
+//    public void timerButtonClicked(View view) {
+//        Intent intent = new Intent(this, TimerActivity.class);
+//        startActivity(intent);
+//    }
 
     /**
      * Function to automatically set the date of the new brew to current date
