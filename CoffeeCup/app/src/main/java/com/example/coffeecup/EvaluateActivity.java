@@ -208,13 +208,13 @@ public class EvaluateActivity extends AppCompatActivity {
                 int newWater = water - (magS * WATER_RATE);
                 int newTime = time - (magE * (BREW_RATE - 2));
                 message.setText("For the next brew, it is recommended that the water weight be lowered from "
-                        + water + "g to " + newWater + "g, and that the brew time be decreased from "
+                        + water + " g to " + newWater + " g, and that the brew time be decreased from "
                         + time + " seconds to " + newTime + " seconds.");
             } else {
                 int newDose = dose + (magS * DOSE_RATE);
                 int newTime = time - (magE * (BREW_RATE - 2));
                 message.setText("For the next brew, it is recommended that the coffee weight be increased from "
-                        + dose + "g to " + newDose + "g, and that the brew time be shortened from "
+                        + dose + " g to " + newDose + " g, and that the brew time be shortened from "
                         + time + " seconds to " + newTime + " seconds.");
             }
         } else if (magS < magE) { // focus more on extraction
@@ -236,13 +236,13 @@ public class EvaluateActivity extends AppCompatActivity {
                 int newWater = water - (magS * WATER_RATE);
                 int newTime = time - (magE * BREW_RATE);
                 message.setText("For the next brew, it is recommended that the water weight be lowered from "
-                        + water + "g to " + newWater + "g, and that the brew time be decreased from "
+                        + water + " g to " + newWater + " g, and that the brew time be decreased from "
                         + time + " seconds to " + newTime + " seconds.");
             } else {
                 int newDose = dose + (magS * DOSE_RATE);
                 int newTime = time - (magE * BREW_RATE);
                 message.setText("For the next brew, it is recommended that the coffee weight be increased from "
-                        + dose + "g to " + newDose + "g, and that the brew time be shortened from "
+                        + dose + " g to " + newDose + " g, and that the brew time be shortened from "
                         + time + " seconds to " + newTime + " seconds.");
             }
         }
@@ -264,13 +264,13 @@ public class EvaluateActivity extends AppCompatActivity {
                 int newWater = water + (magS * WATER_RATE);
                 int newTime = time + (magE * (BREW_RATE - 2));
                 message.setText("For the next brew, it is recommended that the water weight be raised from "
-                        + water + "g to " + newWater + "g, and that the brew time be increased from "
+                        + water + " g to " + newWater + " g, and that the brew time be increased from "
                         + time + " seconds to " + newTime + " seconds.");
             } else {
                 int newDose = dose - (magS * DOSE_RATE);
                 int newTime = time + (magE * (BREW_RATE - 2));
                 message.setText("For the next brew, it is recommended that the coffee weight be lowered from "
-                        + dose + "g to " + newDose + "g, and that the brew time be lengthened from "
+                        + dose + " g to " + newDose + " g, and that the brew time be lengthened from "
                         + time + " seconds to " + newTime + " seconds.");
             }
         } else if (magS < magE) { // focus more on extraction
@@ -292,13 +292,13 @@ public class EvaluateActivity extends AppCompatActivity {
                 int newWater = water + (magS * WATER_RATE);
                 int newTime = time + (magE * BREW_RATE);
                 message.setText("For the next brew, it is recommended that the water weight be increased from "
-                        + water + "g to " + newWater + "g, and that the brew time be increased from "
+                        + water + " g to " + newWater + " g, and that the brew time be increased from "
                         + time + " seconds to " + newTime + " seconds.");
             } else {
                 int newDose = dose - (magS * DOSE_RATE);
                 int newTime = time + (magE * BREW_RATE);
                 message.setText("For the next brew, it is recommended that the coffee weight be lowered from "
-                        + dose + "g to " + newDose + "g, and that the brew time be increased from "
+                        + dose + " g to " + newDose + " g, and that the brew time be increased from "
                         + time + " seconds to " + newTime + " seconds.");
             }
         }
