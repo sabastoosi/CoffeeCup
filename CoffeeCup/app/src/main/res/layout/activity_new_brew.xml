@@ -123,7 +123,7 @@
         android:layout_width="227dp"
         android:layout_height="36dp"
         android:ems="10"
-        android:hint="e.g. 14(g)"
+        android:hint="e.g. 100 (g)"
         android:inputType="textPersonName"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -70,7 +70,7 @@ public class EditBrew extends AppCompatActivity {
         brewer.setText(brew.getmBrewer());
         brewTime.setText(String.valueOf(brew.getmBrewTime()));
         waterDilutionMass.setText(String.valueOf(brew.getmWaterDilutionMass()));
-        notes.setText(String.valueOf("Notes: " + brew.getmNotes()));
+        notes.setText(String.valueOf(brew.getmNotes()));
     }
 
     public void doneButtonClicked(View view) {
